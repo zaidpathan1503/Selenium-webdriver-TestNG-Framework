@@ -3,18 +3,18 @@
 	<test name="Test" preserve-order="true">
 		<classes>
 				
-			<class name="com.abc.testscript.TC001ValidateFormTestCase">
+			<class name="com.abc.testscript.TC003Sample">
 				<methods>
 					<include name="FormValidationTest" />      
 					
 				</methods>
 			</class>
-			<class name="com.abc.testscript.TC002MapSearchPage">
-				<methods>
-					<include name="SearchPageTest" />      
+<!-- 			<class name="com.abc.testscript.TC002MapSearchPage"> -->
+<!-- 				<methods> -->
+<!-- 					<include name="SearchPageTest" />       -->
 					
-				</methods>
-			</class>
+<!-- 				</methods> -->
+<!-- 			</class> -->
 		</classes>
 	</test>
 	<listeners>

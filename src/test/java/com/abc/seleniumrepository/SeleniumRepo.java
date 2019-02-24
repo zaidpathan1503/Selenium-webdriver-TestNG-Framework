@@ -71,7 +71,9 @@ public class SeleniumRepo {
 			capabilities.setCapability("ignoreZoomSetting", true);
 			driver = new InternetExplorerDriver(capabilities);
 		} else if (browserName.equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\chromedriver.exe");
 			driver = new ChromeDriver();
+			System.out.println();
 		}
 
 		driver.manage().timeouts()
