@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="none" name="Failed suite [Suite]">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="com.abc.listener.TestListener"/>
   </listeners>
-  <test parallel="none" name="Test(failed)">
+  <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.abc.testscript.TC001ValidateFormTestCase">
+      <class name="com.abc.testscript.TC003Sample">
         <methods>
+          <include name="AfterTest"/>
           <include name="FormValidationTest"/>
           <include name="Beforem"/>
+          <include name="BeforeTest"/>
         </methods>
-      </class> <!-- com.abc.testscript.TC001ValidateFormTestCase -->
-      <class name="com.abc.testscript.TC002MapSearchPage">
-        <methods>
-          <include name="SearchPageTest"/>
-          <include name="AfterTest"/>
-        </methods>
-      </class> <!-- com.abc.testscript.TC002MapSearchPage -->
+      </class> <!-- com.abc.testscript.TC003Sample -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -29,9 +29,10 @@ public class TestngAnnotations {
 			e.printStackTrace();
 		}
 		
-		SeleniumRepo.driver.manage().window().maximize();
+		//SeleniumRepo.driver.manage().window().maximize();
 	}
 
+	
 	@AfterMethod(alwaysRun = true)
 	public void AfterTest() throws UnknownHostException, NullPointerException
 	{

@@ -14,8 +14,6 @@ import java.util.Properties;
 
 
 public class PropertyFileRead {
-
-	
 	
 	static Properties PropDetails = new Properties();
 	InputStream input = null;
@@ -75,6 +73,3 @@ public class PropertyFileRead {
 	    }   	
 	}
 	}
-	
-	
-

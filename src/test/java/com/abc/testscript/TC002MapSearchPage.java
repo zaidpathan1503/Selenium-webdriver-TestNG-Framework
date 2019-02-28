@@ -69,9 +69,7 @@ public class TC002MapSearchPage extends TestngAnnotations {
 		}
 		else
 		{
-			System.out.println("From TextBox not found");
-			
-			
+			System.out.println("From TextBox not found");			
 		}
 		
 		if(SeleniumRepo.isElementPresent(PropertyFileRead.FileRead("ProjectData.properties","MapToSearch")))

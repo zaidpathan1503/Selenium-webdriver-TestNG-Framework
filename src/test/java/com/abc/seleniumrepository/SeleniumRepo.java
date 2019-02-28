@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Action;
@@ -24,10 +25,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.abc.util.PropertyFileRead;
-
-
-
-
 
 public class SeleniumRepo {
 	public static WebElement webelement;
@@ -91,9 +88,7 @@ public class SeleniumRepo {
 		windowHandlers.add(driver.getWindowHandle());
 		driver.manage().window().maximize();
 		return driver;
-	
 	}
-
 
 /**
  * @author 
@@ -105,17 +100,18 @@ public static WebDriver proxySetting()
 	String serverIP=PropertyFileRead.FileRead("DBDetail.properties","proxyHort"); 
 	String port= PropertyFileRead.FileRead("DBDetail.properties","proxyPort");
 	WebDriver newDriver;
-	FirefoxProfile profile = new FirefoxProfile();  
-profile.setPreference("network.proxy.type",1);  
-profile.setPreference("network.proxy.ftp",serverIP);  
-profile.setPreference("network.proxy.http",serverIP);  
-profile.setPreference("network.proxy.socks",serverIP);  
-profile.setPreference("network.proxy.ssl",serverIP);  
-profile.setPreference("network.proxy.ftp_port",port);  
-profile.setPreference("network.proxy.http_port",port);  
-profile.setPreference("network.proxy.socks_port",port);  
-profile.setPreference("network.proxy.ssl_port",port);  
-newDriver = new FirefoxDriver(profile);
+	//FirefoxProfile profile = new FirefoxProfile();
+	FirefoxOptions profile = new FirefoxOptions();
+	profile.setCapability("network.proxy.type",1);
+	profile.setCapability("network.proxy.ftp",serverIP);  
+	profile.setCapability("network.proxy.http",serverIP);  
+	profile.setCapability("network.proxy.socks",serverIP);  
+	profile.setCapability("network.proxy.ssl",serverIP);  
+	profile.setCapability("network.proxy.ftp_port",port);  
+	profile.setCapability("network.proxy.http_port",port);  
+	profile.setCapability("network.proxy.socks_port",port);  
+	profile.setCapability("network.proxy.ssl_port",port);  
+	newDriver = new FirefoxDriver(profile);
 
 return newDriver;
 	}
@@ -193,7 +189,7 @@ public static boolean SwitchAlert() {
 	 * @param file- Directory and Sub directory to be deleted
 	 * @throws IOException
 	 */
-	public static void delete(File file) throws IOException {
+	public static void delete(File file) throws IOException, NullPointerException {
 		if (file.isDirectory()) { // directory is empty, then delete it
 			if (file.list().length == 0) {
 				file.delete();
@@ -409,8 +405,7 @@ robot.keyPress(KeyEvent.VK_SHIFT);
 		robot.delay(3000);
 
 		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB); 
-		
+		robot.keyRelease(KeyEvent.VK_TAB); 		
 	}
 /**
  * @author 
@@ -463,7 +458,6 @@ robot.keyPress(KeyEvent.VK_SHIFT);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	/**
